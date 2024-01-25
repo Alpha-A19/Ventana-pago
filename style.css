@@ -1,0 +1,716 @@
+* {
+    margin: 0;
+    padding: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+body {
+    margin: 0;
+    padding: 0;
+}
+/* navbar styling */
+.navbar{
+    position: relative;
+    width: 100%;
+    z-index: 999;
+    padding: 30px 0;
+    margin-bottom: 20px;
+    transition: all 0.3s ease;
+    box-shadow: -5px 0px 10px 1px #aaaaaa;
+}
+.navbar.sticky{
+    padding: 15px 0;
+    background: #ffffff;
+}
+.navbar .max-width{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.navbar .logo {
+    height: 7vh;
+}
+.navbar .logo img{
+    height: 90%;
+}
+.navbar .menu li{
+    list-style: none;
+    display: inline-block;
+}
+.navbar .menu li a{
+    display: block;
+    text-decoration: none;
+    color: #000000;
+    font-size: 18px;
+    font-weight: 500;
+    margin-left: 25px;
+    transition: color 0.3s ease;
+}
+.navbar .menu li a:hover{
+    color: rgb(167, 167, 167);
+}
+.navbar.sticky .menu li a:hover{
+    color: rgb(167, 167, 167);
+}
+.menu-btn{
+    color: #fff;
+    font-size: 23px;
+    cursor: pointer;
+    display: none;
+}
+.listaCompra {
+    width: 600px;
+    padding-top: 20px;
+}
+.listaCompra h1{
+    padding: 10px 0;
+}
+.listaCompra li{
+    height: 30px;
+    width: 80%;
+    padding: 5px 5px;
+    list-style: none;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.listaCompra li > p:first-child {
+    width: 70%;
+}
+.listaCompra li p:last-child {
+    font-weight: bold;
+}
+.listaCompra div {
+    font-weight: bold;
+    padding: 5px 5px;
+}
+.listaCompra li:hover {
+    background: #f9cd16;
+}
+
+.container {
+    width: 100%;
+    display: flex;
+}
+.max-width{
+    max-width: 1300px;
+    padding: 0 80px;
+    margin: auto;
+}
+.col-left {
+    width: 50%;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.col-right {
+    background-color: #ffffff;
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    /* box-shadow: -5px 0px 10px 1px #aaaaaa; */
+}
+.col-right > h1 {
+    padding: 0 0 30px 80px;
+}
+
+/* Accordion */
+.img-pay {
+    height: 100%;
+    width: auto;
+    display: flex;
+    align-items: center;
+}
+.img-pay > img {
+    height: 40%;
+    padding: 0 5px;
+}
+.img-pay > div {
+    height: 100%;
+    display: flex;
+    align-items: center;
+}
+.img-pay > div > img {
+    height: 40%;
+    padding: 0 5px;
+}
+.imgdrop {
+    
+}
+.slideImg {
+    display: block !important;
+    animation-name: slideInDown;
+    animation-duration: 2000ms;
+    animation-timing-function: ease;
+    animation-delay: 0ms;
+    animation-direction: normal;
+    animation-fill-mode: both;
+}
+@keyframes slideInDown {
+    0% {
+        opacity: 0;
+        transform: translateY(-30px);
+    }
+}
+
+.imgacc{
+    background-color: #f1f1f1;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-left: 10px;
+    color: #444;
+    cursor: pointer;
+    height: 55px;
+    width: 50%;
+    border: none;
+    text-align: left;
+    outline: none;
+    font-size: 15px;
+    font-weight: bold;
+    transition: 0.4s;
+}
+.imgacc > img{
+    height: 70%;
+    padding-right: 10px;
+}
+
+.panel-two {
+    display: none;
+    flex-direction: column;
+    overflow: hidden;
+    padding-bottom: 15px;
+}
+.panel-two > p {
+    padding-left: 25px;
+}
+
+.conten-text-panel {
+    display: flex;
+    height: 80px;
+    align-items: center;
+}
+.paypal {
+    padding: 20px 0;
+}
+.panel > h3 {
+    font-size: 18px;
+    font-weight: bold;
+    padding: 10px 0;
+}
+.banco-mexico {
+    height: 40px;
+    font-size: 20px;
+    font-weight: bold;
+    padding: 10px 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.banco-mexico > img {
+    height: 100%;
+    width: auto;
+    padding: 10px 20px;
+}
+.text-cuenta {
+    padding: 5px 0;
+}
+.conten-text-panel > span {
+    font-size: 20px;
+    padding-right: 8px;
+}
+.acimg {
+    display: none;
+}
+/* Style the buttons that are used to open and close the accordion panel */
+.cont-accordion {
+    max-width: 550px;
+    padding-left: 80px;
+}
+.accordion {
+    background-color: #eee;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-left: 10px;
+    color: #444;
+    cursor: pointer;
+    height: 55px;
+    width: 50%;
+    border: none;
+    text-align: left;
+    outline: none;
+    font-size: 15px;
+    font-weight: bold;
+    transition: 0.4s;
+  }
+  
+  .active {
+    width: 100%;
+  }
+  .active, .accordion:hover {
+    background-color: #f2f2f2;
+  }
+  
+  .active:after {
+    content: none;
+  }
+  
+  .panel {
+    padding: 0 18px;
+    background-color: white;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.2s ease-out;
+  }
+.column{
+    padding: 10px;
+    width: 100%;
+}
+.cont-input-name {
+    display: flex;
+    justify-content: space-between;
+    width: 45%;
+    height: 45px;
+    padding: 0 0 20px 80px;
+}
+.cont-input-name > input {
+    border: 1px solid lightgrey;
+    border-radius: 6px;
+    outline: none;
+    padding: 0 15px;
+    margin: 0 1rem 0 0;
+    font-size: 17px;
+    font-family: 'Poppins', sans-serif;
+    transition: all 0.3s ease;
+}
+.cont-input-name .emailUser {
+    width: 100%;
+}
+.cont-input-name .nameUser {
+    width: 45%;
+}
+.right form .fields{
+    display: flex;
+    flex-direction: column;
+}
+.right form .field,
+.right form .fields .field{
+    height: 45px;
+    width: 100%;
+    margin-bottom: 10px;
+}
+.fieldsButton {
+    display: flex;
+}
+.fields > span {
+    padding-bottom: 10px;
+}
+.fieldsButton > div > p {
+    padding-bottom: 10px;
+}
+.cont-input > input {
+    width: 80% !important;
+}
+.field > input {
+    height: 90%;
+    width: 90%;
+    border: 1px solid lightgrey;
+    border-radius: 6px;
+    outline: none;
+    padding: 0 15px;
+    font-size: 17px;
+    font-family: 'Poppins', sans-serif;
+    transition: all 0.3s ease;
+}
+.cont-bnb {
+    display: flex;
+    justify-content: space-around;
+    padding: 10px 0;
+}
+.cont-img {
+    width: 50%;
+}
+.cont-img > img{
+    width: 100%;
+    height: auto;
+}
+/* Input checkbox */
+
+/* card styling */
+
+.card {
+    position: relative;
+    width: 350px;
+    height: 350px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: 0.5s;
+    transition-delay: 0.5s;
+
+    /* background-image: url("./recursos/diagrama-electrico.png");
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: right 0; */
+}
+
+.cardActive {
+    width: 600px;
+    transition-delay: 0.5s;
+}
+.card .circle {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.card .circle::before {
+    content: "";
+    position: absolute;
+    top: 30;
+    left: 2;
+    right: 2;
+    width: 350px;
+    height: 350px;
+    border-radius: 50%;
+    background: #ffffff;
+    border: 8px solid var(--cir);
+    filter: drop-shadow(0 0 10px var(--cir)) drop-shadow(0 0 60px var(--cir));
+    transition: 0.5s, background 0.5s;
+    transition-delay: 0.75s, 1s;
+}
+.cardActive .circle::before {
+    transition-delay: 0.5s;
+    width: 100%;
+    height: 100%;
+    box-shadow: -0px 0px 10px 1px #aaaaaa;
+    border-radius: 20px;
+    background: var(--cir);
+}
+.card .circle .logo {
+    position: relative;
+    width: 500px;
+    transition: 0.5s;
+    transition-delay: 0s;
+}
+.cardActive .circle .logo {
+    transform: scale(0);
+    transition-delay: 0s;
+}
+
+.card .product_img {
+    position: absolute;
+    opacity: 0;
+    top: 10%;
+    left: 50%;
+    height: 300px;
+    transition: 0.5s ease-in-out;
+}
+.cardActive .product_img {
+    opacity: 1;
+    transition-delay: 0.75s;
+    top: 10%;
+    left: 60%;
+    height: 300px;
+}
+.card .content { 
+    position: absolute;
+    width: 50%;
+    left: 20%;
+    padding: 20px 20px 20px 20px;
+    opacity: 0;
+    transition: 0.5s;
+    visibility: hidden;
+}
+.cardActive .content {
+    transition-delay: 0.75s;
+    opacity: 1;
+    visibility: visible;
+    left: 20px;
+    top: 80px;
+}
+.card .content h2 {
+    color: black;
+    text-transform: uppercase;
+    padding: 10px 0;
+    font-size: 2.5em;
+    line-height: 1em;
+}
+.card .content h4 {
+    color: black;
+    text-transform: uppercase;
+    font-size: 1.5em;
+    line-height: 1em;
+}
+.card .content h5 {
+    font-size: 1.0em;
+
+    color: #191919;
+}
+
+.cont-button-pay {
+    padding: 0 0 30px 80px;
+    margin-bottom: 30px;
+}
+.cont-button-pay a {
+    display: inline-block;
+    text-align: center;
+    background: #f9cd16;
+    width: 280px;
+    color: #111;
+    font-size: 22px;
+    padding: 12px 36px;
+    margin-top: 20px;
+    font-weight: 400;
+    border-radius: 6px;
+    transition: all 0.3s ease;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.cont-button-pay a:hover {
+    background-color: #021730;
+    color: #fff;
+}
+
+.slideCard {
+    display: block !important;
+    animation-name: slideCard;
+    animation-duration: 2000ms;
+    animation-timing-function: ease;
+    animation-delay: 0ms;
+    animation-direction: normal;
+    animation-fill-mode: both;
+}
+
+@keyframes slideCard {
+    0% {
+        opacity: 0;
+        transform: translateX(-30px);
+    }
+}
+
+@media (max-width: 1280px) {
+    .max-width{
+        padding: 0 50px;
+    }
+      .cont-accordion {
+        max-width: 550px;
+        padding-left: 30px;
+        padding: 30px 0;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+      }
+      .accordion {
+        width: 100%;
+      }
+    .container {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+    }
+    .col-left {
+        background-color: #ffffff;
+        width: 100%;
+        height: 95vh;
+    }
+    .col-right {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    .cont-button-pay {
+        padding: 0;
+    }
+}
+@media (max-width: 960px) {
+    .menu-btn{
+        display: block;
+        z-index: 999;
+    }
+    .navbar .menu{
+        position: fixed;
+        height: 100vh;
+        width: 100%;
+        left: -100%;
+        top: 0;
+        background: #111;
+        text-align: center;
+        padding-top: 80px;
+        transition: all 0.3s ease;
+    }
+    .navbar .menu.active{
+        left: 0;
+    }
+    .navbar .menu li{
+        display: block;
+    }
+    .navbar .menu li a{
+        display: inline-block;
+        margin: 20px 0;
+        font-size: 25px;
+        color: #fff;
+    }
+}
+@media (max-width: 750px) {
+    .col-right {
+        margin-top: 50px;
+        padding-top: 40px;
+        border-top: 1px solid;
+    }
+    .navbar .logo img{
+        height: 70%;
+    }
+    .col-left {
+        height: 100vh;
+    }
+    .card {
+        height: 600px
+    }
+    .listaCompra {
+        width: 90%;
+    }
+    .listaCompra li {
+        width: 100%;
+    }
+    .card .content {
+        left: initial;
+        width: 80%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    .cardActive {
+        width: 90%;
+        display: flex !important;
+        flex-direction: column;
+    }
+    .cardActive .product_img {
+        opacity: 1;
+        transition-delay: 0.75s;
+        top: 45%;
+        left: initial;
+        height: 50%;
+    }
+    .card .content h2 {
+        font-size: 2em;
+        text-align: center;
+    }
+    .card .content h5 {
+        text-align: center;
+    }
+    .col-right > h1 {
+        padding: 10px 0 0 0;
+        padding-bottom: 30px;
+        text-align: center;
+    }
+    .cont-input-name {
+        width: 80%;
+        display: flex;
+        flex-direction: column;
+        padding: 0;
+    }
+    .cont-input-name input {
+        width: 90% !important;
+        padding: 10px 16px;
+        margin-bottom: 5px;
+    }
+    .oneHr {
+        width: 70% !important;
+        margin: 75px 0 30px 0 !important;
+    }
+}
+@media (max-width: 550px) {
+    .listaCompra li > p:first-child {
+        width: 100%;
+    }
+    .listaCompra li{
+        height: initial;
+        flex-direction: column;
+        align-items: start;    
+    }
+    .cardActive .product_img {
+        top: 50%;
+        height: 40%;
+    }
+    .card .content h2 {
+        font-size: 2em;
+    }
+    .card .content h4 {
+        font-size: 1.0em;
+    }
+    .card .content h5 {
+        font-size: 1.0em;
+    }
+    .cont-img-trans {
+        display: none !important;
+    }
+    .cont-accordion {
+        max-width: 420px;
+        padding-left: 0px;
+        padding: 20px 0;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+    .fieldsButton {
+        display: flex;
+        flex-direction: column;
+    }
+    .field > input {
+        width: 80%;
+    }
+    .accordion {
+        width: 90%;
+      }
+      .cont-button-pay {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+      .cont-button-pay a {
+        width: 60%;
+    }
+  }
+
+  @media (max-width: 300px) {
+    .navbar .logo {
+        height: 6vh;
+    }
+    .navbar .logo img{
+        height: 70%;
+    }
+    .cont-accordion {
+        max-width: 200px;
+    }
+    hr {
+        width: 70% !important;
+        margin: 40px 0 30px 0 !important;
+    }
+    .card {
+        height: 400px;
+    }
+    .cardActive .product_img {
+        top: 55%;
+        height: 40%;
+    }
+    .cardActive .product_img {
+        display: none;
+    }
+    .cont-button-pay a {
+        width: 40%;
+        font-size: 15px;
+    }
+  }
