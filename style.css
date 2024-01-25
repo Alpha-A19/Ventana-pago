@@ -644,7 +644,7 @@ body {
         align-items: start;    
     }
     .cardActive .product_img {
-        top: 59%;
+        top: 50%;
         height: 40%;
     }
     .card {
