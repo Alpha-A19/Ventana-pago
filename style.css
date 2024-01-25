@@ -550,8 +550,11 @@ body {
         padding-top: 80px;
         transition: all 0.3s ease;
     }
-    .navbar .menu.active{
+    .navbar .menu.activeMenu{
         left: 0;
+    }
+    .btn-active > svg {
+        color: #fff !important;
     }
     .navbar .menu li{
         display: block;
@@ -641,8 +644,15 @@ body {
         align-items: start;    
     }
     .cardActive .product_img {
-        top: 50%;
+        top: 59%;
         height: 40%;
+    }
+    .card {
+        height: 800px;
+        justify-content: start;
+    }
+    .cardActive .content {
+        top: initial;
     }
     .card .content h2 {
         font-size: 2em;
