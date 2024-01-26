@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ventana de pago</title>
-    <link rel="stylesheet" href="./style.css">
+    <link rel="stylesheet icon" href="./style.css">
 </head>
 <body>
     <nav class="navbar">
@@ -12,14 +12,13 @@
             <div class="logo">
                 <img id="logo" src="./recursos/deauto.webp" alt="">
             </div>
-            <ul class="menu">          
+            <ul class="menu" id="menu">          
                 <li><a href="#" class="menu-btn">Todas las Marcas</a></li>
                 <li><a href="#" class="menu-btn">¿Lo sabes?</a></li>
                 <li><a href="#" class="menu-btn">Carrito</a></li>
                 <li><a href="#" class="menu-btn">Contáctanos</a></li>
-
             </ul>
-            <div class="menu-btn">
+            <div class="menu-btn" id="btn-menu">
                 <svg style="color: black;" xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-list" viewBox="0 0 16 16">
                     <path fill-rule="evenodd" d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5m0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5m0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5"/>
                   </svg>
@@ -28,16 +27,16 @@
     </nav>
     <section class="container">
         <div class="col-left">
-            <div class="card slideCard" id="card">
-                <div class="circle" style="--cir: #f4010f3">
+             <div class="card" id="card"> <!-- slideCard -->
+                <div class="container-card-cont" id="active-card">
+                    <div class="content">
+                        <h2 id="DE">Diagramas Electricos</h2>
+                        <h5 id="carText" style="padding-bottom: 5px;"></h5>
+                        <hr>
+                        <h5 style="color: crimson;" class="price-text">Precio: 9.99</h5>
+                    </div>
+                    <img src="./recursos/TOYOTA-COROLLA-1.8L-2014.webp" class="product_img"> 
                 </div>
-                <div class="content">
-                    <h2 id="DE">Diagramas Electricos</h2>
-                    <h5 id="carText" style="padding-bottom: 5px;"></h5>
-                    <hr>
-                    <h5 style="color: crimson;">Precio: 9.99</h5>
-                </div>
-                <img src="./recursos/TOYOTA-COROLLA-1.8L-2014.webp" class="product_img">
             </div>
             <nav class="listaCompra">
                 <h1>Su pedido</h1>
@@ -54,226 +53,272 @@
                     <p>Precio: 9.99</p>
                 </li>
                 <div>
+                    <hr>
                     <p>Total a pagar: 29.97</p>
                 </div>
             </nav>
         </div>
         <div class="col-right">
-            <h1>Correo donde enviaremos el diagrama</h1>
-            <div class="cont-input-name">
-                <input class="emailUser" type="email" id="inputNumero" autocomplete="off" placeholder="Dirección de correo electrónico" name="email">
+            <div class="info-text">
+                <div class='content__container'>
+                    <ul class='cont-list'>
+                        <span class='cont-item'>
+                            <svg xmlns="https://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 512 512"><path d="M256-.0078C260.7-.0081 265.2 1.008 269.4 2.913L457.7 82.79C479.7 92.12 496.2 113.8 496 139.1C495.5 239.2 454.7 420.7 282.4 503.2C265.7 511.1 246.3 511.1 229.6 503.2C57.25 420.7 16.49 239.2 15.1 139.1C15.87 113.8 32.32 92.12 54.3 82.79L242.7 2.913C246.8 1.008 251.4-.0081 256-.0078V-.0078zM256 444.8C393.1 378 431.1 230.1 432 141.4L256 66.77L256 444.8z"></path></svg>
+                        SSL Pago seguro
+                        </span>
+                        
+                      <span class='cont-item'>
+                        <svg xmlns="https://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 512 512"><path d="M470.6 425.4C483.1 437.9 483.1 458.1 470.6 470.6C458.1 483.1 437.9 483.1 425.4 470.6L412.1 458.2C369.6 491.9 315.2 512 255.1 512C196.8 512 142.4 491.9 99.02 458.2L86.63 470.6C74.13 483.1 53.87 483.1 41.37 470.6C28.88 458.1 28.88 437.9 41.37 425.4L53.76 412.1C20.07 369.6 0 315.2 0 255.1C0 196.8 20.07 142.4 53.76 99.02L41.37 86.63C28.88 74.13 28.88 53.87 41.37 41.37C53.87 28.88 74.13 28.88 86.63 41.37L99.02 53.76C142.4 20.07 196.8 0 255.1 0C315.2 0 369.6 20.07 412.1 53.76L425.4 41.37C437.9 28.88 458.1 28.88 470.6 41.37C483.1 53.87 483.1 74.13 470.6 86.63L458.2 99.02C491.9 142.4 512 196.8 512 255.1C512 315.2 491.9 369.6 458.2 412.1L470.6 425.4zM309.3 354.5C293.4 363.1 275.3 368 255.1 368C236.7 368 218.6 363.1 202.7 354.5L144.8 412.5C176.1 434.9 214.5 448 255.1 448C297.5 448 335.9 434.9 367.2 412.5L309.3 354.5zM448 255.1C448 214.5 434.9 176.1 412.5 144.8L354.5 202.7C363.1 218.6 368 236.7 368 256C368 275.3 363.1 293.4 354.5 309.3L412.5 367.2C434.9 335.9 448 297.5 448 256V255.1zM255.1 63.1C214.5 63.1 176.1 77.14 144.8 99.5L202.7 157.5C218.6 148.9 236.7 143.1 255.1 143.1C275.3 143.1 293.4 148.9 309.3 157.5L367.2 99.5C335.9 77.14 297.5 63.1 256 63.1H255.1zM157.5 309.3C148.9 293.4 143.1 275.3 143.1 255.1C143.1 236.7 148.9 218.6 157.5 202.7L99.5 144.8C77.14 176.1 63.1 214.5 63.1 255.1C63.1 297.5 77.14 335.9 99.5 367.2L157.5 309.3zM255.1 207.1C229.5 207.1 207.1 229.5 207.1 255.1C207.1 282.5 229.5 303.1 255.1 303.1C282.5 303.1 304 282.5 304 255.1C304 229.5 282.5 207.1 255.1 207.1z"></path>
+                        </svg>
+                        24/7 Atención Disponible</span>
+                      <span class='cont-item'>
+                        <svg xmlns="https://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 576 512"><path d="M512 32C547.3 32 576 60.65 576 96V128H0V96C0 60.65 28.65 32 64 32H512zM576 416C576 451.3 547.3 480 512 480H64C28.65 480 0 451.3 0 416V224H576V416zM112 352C103.2 352 96 359.2 96 368C96 376.8 103.2 384 112 384H176C184.8 384 192 376.8 192 368C192 359.2 184.8 352 176 352H112zM240 384H368C376.8 384 384 376.8 384 368C384 359.2 376.8 352 368 352H240C231.2 352 224 359.2 224 368C224 376.8 231.2 384 240 384z"></path></svg>
+                        Variedad de opciones de pago​</span>
+                    </ul>
+                  </div>
             </div>
-            <h1>Detalles de facturación</h1>
-            <div class="cont-input-name">
-                <input class="nameUser" type="text" placeholder="Nombre" required name="name">
-                <input class="nameUser" type="text" placeholder="Apellido" required name="lastName">
-            </div>
-            <hr class="oneHr" style="width: 45%; margin: 20px 0 20px 80px;">
-            <h1>Selecciona un motodo de pago</h1>
-            <div class="cont-accordion"> 
-                <button class="accordion">Tarjeta de débido o crédito 
-                    <div class="img-pay transferencia">
-                        <div class="cont-img-trans">
-                            <img class="imgdrop acimg" src="./recursos/google-pay.png" alt="$">
-                            <img class="imgdrop acimg" src="./recursos/apple-pay.png" alt="$">
-                            <img class="imgdrop acimg" src="./recursos/visa.png" alt="$">
-                            <img class="imgdrop acimg" src="./recursos/Mastercard.png" alt="$">
+
+            <form action="" method="" id="form" name="" onsubmit="return validacion()">
+                <h1>Correo donde enviaremos el diagrama</h1>
+                <div class="cont-input-name">
+                    <input class="emailUser" type="email" id="inputEmail" autocomplete="off" placeholder="Dirección de correo electrónico" required name="email">
+                </div>
+                <h1>Detalles de facturación</h1>
+                <div class="cont-input-name">
+                    <input class="nameUser" type="text" placeholder="Nombre" required name="name" id="clientName">
+                    <input class="nameUser" type="text" placeholder="Apellido" required name="lastName" id="lastName">
+                </div>
+                <hr class="oneHr" style="width: 45%; margin: 20px 0 20px 80px;">
+                <h1>Selecciona un motodo de pago</h1>
+                <div class="cont-accordion"> 
+                    <div class="accordion">Tarjeta de débido o crédito 
+                        <div class="img-pay transferencia">
+                            <div class="cont-img-trans">
+                                <img class="imgdrop acimg" src="./recursos/google-pay.png" alt="$">
+                                <img class="imgdrop acimg" src="./recursos/apple-pay.png" alt="$">
+                                <img class="imgdrop acimg" src="./recursos/visa.png" alt="$">
+                                <img class="imgdrop acimg" src="./recursos/Mastercard.png" alt="$">
+                            </div>
+                            <img src="./recursos/tarjeta.png" alt="$">
                         </div>
-                        <img src="./recursos/tarjeta.png" alt="$">
                     </div>
-                </button>
-                <div class="panel">
-                    <div class="column right">
-                        <form action="#" method="POST" id="formTarjeta">
+                    <div class="panel">
+                        <div class="column right">
+                            <form action="#" method="POST" id="formTarjeta">
+                            </form>
                             <div class="fields">
                                 <span>Numero de la tarjeta</span>
                                 <div class="field name">
-                                    <input type="text" id="inputNumero" maxlength="19" autocomplete="off" placeholder="1234 1234 1234 1234">
+                                    <input type="text" id="inputNumero" maxlength="19" autocomplete="off" placeholder="1234 1234 1234 1234" required>
                                 </div>
                                 <div class="fieldsButton">
                                     <div>
                                         <p>Fecha de caducidad</p>
                                         <div class="field cont-input">
-                                            <input type="text" placeholder="MM/AA" required name="name">
+                                            <input type="text" id="inputDate" placeholder="MM/AA" required>
                                         </div>
                                     </div>
                                     <div>
                                         <p>Código de verificación</p>
                                         <div class="field cont-input">
-                                            <input type="email" placeholder="CVC" required name="email">
+                                            <input type="text" id="inputVerifi" placeholder="CVC" required>
                                         </div>
                                     </div>
                                 </div>
                             </div>
-                        </form>
-                    </div>
-                </div>
-
-                <button class="accordion">Binance Pay
-                    <div class="img-pay transferencia">
-                        <img src="./recursos/Binance.png" alt="$">
-                    </div>
-                </button>
-                <div class="panel">
-                    <div class="cont-bnb">
-                        <div class="cont-img">
-                            <img src="./recursos/binance-pay.png" alt="">
                         </div>
                     </div>
-                </div>
 
-                <button class="accordion">Bitcoin y otras criptomonedas
-                    <div class="img-pay transferencia">
-                        <div class="cont-img-trans">
-                            <img class="imgdropB acimg" src="./recursos/usdc.webp" alt="$">
-                            <img class="imgdropB acimg" src="./recursos/Ethereum-Logo.png" alt="$">
-                            <img class="imgdropB acimg" src="./recursos/tether.png" alt="$">
+                    <div class="accordion">Binance Pay
+                        <div class="img-pay transferencia">
+                            <img src="./recursos/Binance.png" alt="$">
                         </div>
-                        <img src="./recursos/Bitcoin.svg.png" alt="$">
                     </div>
-                </button>
-                <div class="panel conten-text-panel">
-                    <span >✔</span><p>Pagar con Bitcoin o otras criptomonedas</p>
-                </div>
-                <button class="accordion">PayPal
-                    <div class="img-pay transferencia">
-                        <img src="./recursos/paypal.png" alt="$">
+                    <div class="panel">
+                        <div class="cont-bnb">
+                            <div class="cont-img">
+                                <img src="./recursos/binance-pay.png" alt="">
+                            </div>
+                        </div>
                     </div>
-                </button>
-                <div class="panel">
-                    <div class="cont-img paypal">
-                        <img src="./recursos/paypal-large.png" alt="">
+        
+                    <div class="accordion">Bitcoin y otras criptomonedas
+                        <div class="img-pay transferencia">
+                            <div class="cont-img-trans">
+                                <img class="imgdropB acimg" src="./recursos/usdc.webp" alt="$">
+                                <img class="imgdropB acimg" src="./recursos/Ethereum-Logo.png" alt="$">
+                                <img class="imgdropB acimg" src="./recursos/tether.png" alt="$">
+                            </div>
+                            <img src="./recursos/Bitcoin.svg.png" alt="$">
+                        </div>
                     </div>
-                </div>
-                <button class="accordion">Transferencia bancaria directa
-                    <div class="img-pay transferencia">
-                        <img src="./recursos/transferencia.png" alt="$">
+                    <div class="panel conten-text-panel">
+                        <span >✔</span><p>Pagar con Bitcoin o otras criptomonedas</p>
                     </div>
-                </button>
-                <div class="panel" style="margin: 20px;">
-                    <h3>Disponible solo para Mexico, Colombia y Venezuela</h3>
-                    <button class="imgacc">Mexico 
-                        <img src="./recursos/mexico.png" alt="">
-                    </button>
-                    <div class="panel-two">
-                        <p class="banco-mexico">
-                            <strong>🔹 BBVA Bancomer</strong>
-                        </p>
-                        <p class="text-cuenta">
-                            <strong style="color: gray;">Nombre: </strong> 
-                            <strong>Maria Eugenia Henriquez</strong>
-                        </p>
-                        <p class="text-cuenta">
-                            <strong style="color: gray;">Cuenta:</strong> 
-                            <strong>158 163 9676</strong>
-                        </p>
-                        <p class="text-cuenta">
-                            <strong style="color: gray;">CLABE:</strong> 
-                            <strong>012 180 01581639676 2</strong>
-                        </p>
-                        <p class="text-cuenta">
-                            <strong style="color: gray;">NRO. Tarjeta:</strong> 
-                            <strong>4152 3140 4287 5693</strong>
-                        </p>
-                        <p class="text-cuenta">
-                            <strong style="color: gray;">Monto:</strong> 
-                            <strong>190 Pesos 💸</strong>
-                        </p>
+                    <div class="accordion">PayPal
+                        <div class="img-pay transferencia">
+                            <img src="./recursos/paypal.png" alt="$">
+                        </div>
+                    </div>
+                    <div class="panel">
+                        <div class="cont-img paypal">
+                            <img src="./recursos/paypal-large.png" alt="">
+                        </div>
+                    </div>
+                    <div class="accordion">Transferencia bancaria directa
+                        <div class="img-pay transferencia">
+                            <img src="./recursos/transferencia.png" alt="$">
+                        </div>
+                    </div>
+                    <div class="panel" style="margin: 20px;">
+                        <h3>Disponible solo para Mexico, Colombia y Venezuela</h3>
+                        <div class="imgacc">Mexico 
+                            <img src="./recursos/mexico.png" alt="">
+                        </div>
+                        <div class="panel-two">
+                            <p class="banco-mexico">
+                                <strong>🔹 BBVA Bancomer</strong>
+                            </p>
+                            <p class="text-cuenta">
+                                <strong style="color: gray;">Nombre: </strong> 
+                                <strong>Maria Eugenia Henriquez</strong>
+                            </p>
+                            <p class="text-cuenta">
+                                <strong style="color: gray;">Cuenta:</strong> 
+                                <strong>158 163 9676</strong>
+                            </p>
+                            <p class="text-cuenta">
+                                <strong style="color: gray;">CLABE:</strong> 
+                                <strong>012 180 01581639676 2</strong>
+                            </p>
+                            <p class="text-cuenta">
+                                <strong style="color: gray;">NRO. Tarjeta:</strong> 
+                                <strong>4152 3140 4287 5693</strong>
+                            </p>
+                            <p class="text-cuenta">
+                                <strong style="color: gray;">Monto:</strong> 
+                                <strong>190 Pesos 💸</strong>
+                            </p>
+                        </div>
+                            <div class="imgacc">Colombia
+                                <img src="./recursos/colombia.png" alt="">
+                            </div>
+                            <div class="panel-two">
+                                <p class="banco-mexico">
+                                    <strong>🔹 Bancolombia</strong>
+                                </p>
+                                <p class="text-cuenta">
+                                    <strong style="color: gray;">Nombre: </strong> 
+                                    <strong>Oscar Alexander Guerra Ariza</strong>
+                                </p>
+                                <p class="text-cuenta">
+                                    <strong style="color: gray;">Cuenta:</strong> 
+                                    <strong>Ahorro</strong>
+                                </p>
+                                <p class="text-cuenta">
+                                    <strong style="color: gray;">Número de cuenta:</strong> 
+                                    <strong>01700003297</strong>
+                                </p>
+                            </div>
+        
+                            <div class="imgacc">Venezuela
+                                <img src="./recursos/venezuela.png" alt="">
+                            </div>
+                            <div class="panel-two">
+                                <p class="banco-mexico">
+                                    <strong>🔹 Banco Mercantil</strong>
+                                </p>
+                                <p class="text-cuenta">
+                                    <strong style="color: gray;">Nombre: </strong> 
+                                    <strong>Miguel Almarat</strong>
+                                </p>
+                                <p class="text-cuenta">
+                                    <strong style="color: gray;">Cuenta:</strong> 
+                                    <strong>158 163 9676</strong>
+                                </p>
+                                <p class="text-cuenta">
+                                    <strong style="color: gray;">Número de cuenta:</strong> 
+                                    <strong>01050042798042062508</strong>
+                                </p>
+                                <p class="text-cuenta">
+                                    <strong style="color: gray;">C.I:</strong> 
+                                    <strong>24.165.550</strong>
+                                </p>
+                                
+                                <p class="banco-mexico">
+                                    <strong>🔹 Banco Provincial</strong>
+                                </p>
+                                <p class="text-cuenta">
+                                    <strong style="color: gray;">Nombre: </strong> 
+                                    <strong>Miguel Almarat</strong>
+                                </p>
+                                <p class="text-cuenta">
+                                    <strong style="color: gray;">Cuenta:</strong> 
+                                    <strong>158 163 9676</strong>
+                                </p>
+                                <p class="text-cuenta">
+                                    <strong style="color: gray;">Número de cuenta:</strong> 
+                                    <strong>01080122220100138658</strong>
+                                </p>
+                                <p class="text-cuenta">
+                                    <strong style="color: gray;">Cuenta:</strong> 
+                                    <strong>Corriente</strong>
+                                </p>
+                                <p class="text-cuenta">
+                                    <strong style="color: gray;">C.I:</strong> 
+                                    <strong>24.165.550</strong>
+                                </p>
+        
+                                <p class="banco-mexico">
+                                    <strong>🔹 Pago móvil (Provincial o Mercantil):</strong>
+                                </p>
+                                <p class="text-cuenta">
+                                    <strong style="color: gray;">Nombre: </strong> 
+                                    <strong>Miguel Almarat</strong>
+                                </p>
+                                <p class="text-cuenta">
+                                    <strong style="color: gray;">Numero de telefono:</strong> 
+                                    <strong>04144105876</strong>
+                                </p>
+                                <p class="text-cuenta">
+                                    <strong style="color: gray;">C.I:</strong> 
+                                    <strong>24.165.550</strong>
+                                </p>
+                            </div>
+                        </div>
+                        <div class="texCondition">
+                            <span>
+                                <strong>Tu diagrama se enviará a la Dirección de Correo Electrónico que nos hayas indicado.</strong> Revisa la bandeja de entrada y en caso de que no aparezca, puedes revisar la bandeja de spam. 
+                            </span>
+                            <span>Cualquier problema o duda nos puedes contactar al whatsapp y con gusto te ayudaremos.</span>
+                            <div class="input-condi">
+                                <input type="checkbox" id="input-term" onclick="javascript:validar(this);">
+                                <span>He leído y estoy de acuerdo con los <a href="">términos y condiciones</a> de la web</span>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="cont-button-pay">
+                                <button id="button-pay" class="disable" type="submit">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-lock-fill" viewBox="0 0 16 16">
+                                        <path d="M8 1a2 2 0 0 1 2 2v4H6V3a2 2 0 0 1 2-2m3 6V3a3 3 0 0 0-6 0v4a2 2 0 0 0-2 2v5a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2"/>
+                                    </svg>
+                                    <p id="text-change">Completar pedido</p>
+                                    <img src="" alt="" id="imgMetodo" >
+                                </button>
+                            </div>
+                        </div>
+                    </div>
                     </div>
 
-                    <button class="imgacc">Colombia
-                        <img src="./recursos/colombia.png" alt="">
-                    </button>
-                    <div class="panel-two">
-                        <p class="banco-mexico">
-                            <strong>🔹 Bancolombia</strong>
-                        </p>
-                        <p class="text-cuenta">
-                            <strong style="color: gray;">Nombre: </strong> 
-                            <strong>Oscar Alexander Guerra Ariza</strong>
-                        </p>
-                        <p class="text-cuenta">
-                            <strong style="color: gray;">Cuenta:</strong> 
-                            <strong>Ahorro</strong>
-                        </p>
-                        <p class="text-cuenta">
-                            <strong style="color: gray;">Número de cuenta:</strong> 
-                            <strong>01700003297</strong>
-                        </p>
-                    </div>
-
-                    <button class="imgacc">Venezuela
-                        <img src="./recursos/venezuela.png" alt="">
-                    </button>
-                    <div class="panel-two">
-                        <p class="banco-mexico">
-                            <strong>🔹 Banco Mercantil</strong>
-                        </p>
-                        <p class="text-cuenta">
-                            <strong style="color: gray;">Nombre: </strong> 
-                            <strong>Miguel Almarat</strong>
-                        </p>
-                        <p class="text-cuenta">
-                            <strong style="color: gray;">Cuenta:</strong> 
-                            <strong>158 163 9676</strong>
-                        </p>
-                        <p class="text-cuenta">
-                            <strong style="color: gray;">Número de cuenta:</strong> 
-                            <strong>01050042798042062508</strong>
-                        </p>
-                        <p class="text-cuenta">
-                            <strong style="color: gray;">C.I:</strong> 
-                            <strong>24.165.550</strong>
-                        </p>
-                        
-                        <p class="banco-mexico">
-                            <strong>🔹 Banco Provincial</strong>
-                        </p>
-                        <p class="text-cuenta">
-                            <strong style="color: gray;">Nombre: </strong> 
-                            <strong>Miguel Almarat</strong>
-                        </p>
-                        <p class="text-cuenta">
-                            <strong style="color: gray;">Cuenta:</strong> 
-                            <strong>158 163 9676</strong>
-                        </p>
-                        <p class="text-cuenta">
-                            <strong style="color: gray;">Número de cuenta:</strong> 
-                            <strong>01080122220100138658</strong>
-                        </p>
-                        <p class="text-cuenta">
-                            <strong style="color: gray;">Cuenta:</strong> 
-                            <strong>Corriente</strong>
-                        </p>
-                        <p class="text-cuenta">
-                            <strong style="color: gray;">C.I:</strong> 
-                            <strong>24.165.550</strong>
-                        </p>
-
-                        <p class="banco-mexico">
-                            <strong>🔹 Pago móvil (Provincial o Mercantil):</strong>
-                        </p>
-                        <p class="text-cuenta">
-                            <strong style="color: gray;">Nombre: </strong> 
-                            <strong>Miguel Almarat</strong>
-                        </p>
-                        <p class="text-cuenta">
-                            <strong style="color: gray;">Numero de telefono:</strong> 
-                            <strong>04144105876</strong>
-                        </p>
-                        <p class="text-cuenta">
-                            <strong style="color: gray;">C.I:</strong> 
-                            <strong>24.165.550</strong>
-                        </p>
-                    </div>
-                </div>
-            </div>
-
-            <div class="cont-button-pay">
-                
-            </div>
-        </div>
+            </form>
     </section>
+    <div class="botton">
+        <div class="back-pay">
+            <img src="./recursos/backPay.webp" alt="">
+            <p>¡Garantía de devolución del 100% del dinero!</p>
+        </div>
+    </div>
+    
 
     <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
     <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
