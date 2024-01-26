@@ -780,7 +780,10 @@ body {
         height: 70%;
     }
     .cont-accordion {
-        max-width: 200px;
+        max-width: initial;
+    }
+    .imgacc {
+        width: 60%;
     }
     hr {
         width: 70% !important;
@@ -790,5 +793,8 @@ body {
     .cont-button-pay button {
         width: 100%;
         font-size: 15px;
+    }
+    .texCondition {
+        width: 92%;
     }
   }
