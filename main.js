@@ -2,60 +2,14 @@ var acc = document.getElementsByClassName("accordion");
 var dropTransf = document.getElementsByClassName("imgdrop");
 var dropCrip = document.getElementsByClassName("imgdropB");
 
-function checkedBnb() {
-    let span = "<span class='checkmark'></span>";
-    if(document.getElementById("checkA").checked == true) {
-        document.getElementById("label-bnb").textContent = "¡Seleccionado!"
-    } else {
-        //document.getElementById("label-bnb").insertAdjacentHTML("beforeend", span);
-        document.getElementById("label-bnb").textContent = "Seleccionar";
-    }
-}
-
 window.addEventListener("load", () => {
-  var contButton = document.querySelector(".cont-button-pay");
-  var tarjeta = document.createElement("a");
-  var binance = document.createElement("a");
-  var cripto = document.createElement("a");
-  var paypal = document.createElement("a");
-  var trasferencia = document.createElement("a");
+  // let button = document.getElementById("button-pay").checked = false;
 
-  tarjeta.textContent = "Realizar pedido con Tarjeta";
-  binance.textContent = "Realizar pedido con Binance Pay";
-  cripto.textContent = "Realizar pedido con Criptomonedas";
-  paypal.textContent = "Realizar pedido con PayPal";
-  trasferencia.textContent = "Enviar comprobante de pago (Via WhatsApp)";
-
-  contButton.appendChild(tarjeta);
-
+  imgMetodo = document.getElementById("imgMetodo");
+  imgMetodo.src = "./recursos/tarjeta.png";
 
   //Efecto card producto
-  document.getElementById('card').classList.toggle('cardActive');
-
-  const formulario = document.querySelector("#formTarjeta");
-
-  formulario.inputNumero.addEventListener("keyup", (e) => {
-    let valorInput = e.target.value;
-
-    formulario.inputNumero.value = valorInput
-    // Eliminamos espacios en blanco
-    .replace(/\s/g, '')
-    // Eliminar las letras
-    .replace(/\D/g, '')
-    // Ponemos espacio cada cuatro numeros
-    .replace(/([0-9]{4})/g, '$1 ')
-    // Elimina el ultimo espaciado
-    .trim();
-
-    numeroTarjeta.textContent = valorInput;
-
-    if(valorInput == ''){
-      numeroTarjeta.textContent = '1234 1234 1234 1234';
-
-      logoMarca.innerHTML = '';
-    }
-
-  });
+  document.getElementById('active-card').classList.toggle('card-active');
 
     //Efectos para accordion e imagenes
     slideImg();
@@ -68,8 +22,8 @@ window.addEventListener("load", () => {
         console.log(panelA.scrollHeight);
       }
 
-    acc[0].addEventListener("click", () => {
-
+    acc[0].addEventListener("click", (e) => {
+        e.stopPropagation();
         acc[0].classList.toggle("active");
         acc[1].classList.remove("active");
         acc[2].classList.remove("active");
@@ -105,10 +59,17 @@ window.addEventListener("load", () => {
           dropCrip[2].classList.toggle("acimg");
             removeSlideCrip();
 
-            contButton.replaceChildren(tarjeta);
+          imgMetodo.src = "./recursos/tarjeta.png";
+          document.getElementById("text-change").innerText = "Completar pedido";
+
+          // remover requerido de stripe
+          document.getElementById("inputNumero").setAttribute("required", "");
+          document.getElementById("inputDate").setAttribute("required", "");
+          document.getElementById("inputVerifi").setAttribute("required", "");
         } 
     })
-    acc[1].addEventListener("click", () => {
+    acc[1].addEventListener("click", (e) => {
+        e.stopPropagation();
         //Slide transfer
         dropTransf[0].classList.toggle("acimg");
         dropTransf[1].classList.toggle("acimg");
@@ -141,17 +102,23 @@ window.addEventListener("load", () => {
           panelD.style.maxHeight = null;
           panelE.style.maxHeight = null;
 
-          contButton.replaceChildren(binance);
+          imgMetodo.src = "./recursos/binance.png";
+          document.getElementById("text-change").innerText = "Completar pedido";
+
+          // remover requerido de stripe
+          document.getElementById("inputNumero").removeAttribute("required");
+          document.getElementById("inputDate").removeAttribute("required");
+          document.getElementById("inputVerifi").removeAttribute("required");
         } 
     })
-    acc[2].addEventListener("click", () => {
+    acc[2].addEventListener("click", (e) => {
+      e.stopPropagation();
         //Slide transfer
         dropTransf[0].classList.toggle("acimg");
         dropTransf[1].classList.toggle("acimg");
         dropTransf[2].classList.toggle("acimg");
         dropTransf[3].classList.toggle("acimg");
 
-        
         removeSlide();
 
         acc[2].classList.toggle("active");
@@ -187,12 +154,19 @@ window.addEventListener("load", () => {
 
           slideImgCrip()
 
-          contButton.replaceChildren(cripto);
+          imgMetodo.src = "./recursos/Bitcoin.svg.png";
+          document.getElementById("text-change").innerText = "Completar pedido";
+
+          // remover requerido de stripe
+          document.getElementById("inputNumero").removeAttribute("required");
+          document.getElementById("inputDate").removeAttribute("required");
+          document.getElementById("inputVerifi").removeAttribute("required");
         } 
         
     })
 
-    acc[3].addEventListener("click", () => {
+    acc[3].addEventListener("click", (e) => {
+      e.stopPropagation();
         //Slide transfer
         dropTransf[0].classList.toggle("acimg");
         dropTransf[1].classList.toggle("acimg");
@@ -226,11 +200,18 @@ window.addEventListener("load", () => {
           panelD.style.maxHeight = null;
           panelE.style.maxHeight = null;
 
-          contButton.replaceChildren(paypal);
+          imgMetodo.src = "./recursos/paypal.png";
+          document.getElementById("text-change").innerText = "Completar pedido";
+
+          // remover requerido de stripe
+          document.getElementById("inputNumero").removeAttribute("required");
+          document.getElementById("inputDate").removeAttribute("required");
+          document.getElementById("inputVerifi").removeAttribute("required");
         } 
     })
 
-    acc[4].addEventListener("click", () => {
+    acc[4].addEventListener("click", (e) => {
+      e.stopPropagation();
         //Slide transfer
         dropTransf[0].classList.toggle("acimg");
         dropTransf[1].classList.toggle("acimg");
@@ -264,14 +245,23 @@ window.addEventListener("load", () => {
           panelD.style.maxHeight = null;
           panelE.style.maxHeight = null;
           
-          contButton.replaceChildren(trasferencia);
+          imgMetodo.src = "./recursos/WhatsApp.svg.webp";
+
+          document.getElementById("text-change").innerText = "Enviar comprobante";
+
+          // remover requerido de stripe
+          document.getElementById("inputNumero").removeAttribute("required");
+          document.getElementById("inputDate").removeAttribute("required");
+          document.getElementById("inputVerifi").removeAttribute("required");
         } 
     })
 
+    //Accordion transferencia direccta
     var accx = document.getElementsByClassName("imgacc");
 
-    accx[0].addEventListener("click", function() {
-      
+    accx[0].addEventListener("click", function(e) {
+      e.stopPropagation();
+
       accx[0].classList.toggle("active");
       accx[1].classList.remove("active");
       accx[2].classList.remove("active");
@@ -287,7 +277,8 @@ window.addEventListener("load", () => {
         panelC.style.display = "none";
       }
     });
-    accx[1].addEventListener("click", function() {
+    accx[1].addEventListener("click", function(e) {
+      e.stopPropagation();
       
       accx[0].classList.remove("active");
       accx[1].classList.toggle("active");
@@ -304,7 +295,8 @@ window.addEventListener("load", () => {
         panelC.style.display = "none";
       }
     });
-    accx[2].addEventListener("click", function() {
+    accx[2].addEventListener("click", function(e) {
+      e.stopPropagation();
       
       accx[0].classList.remove("active");
       accx[1].classList.remove("active");
@@ -321,7 +313,47 @@ window.addEventListener("load", () => {
         panelC.style.display = "flex";
       }
     });
-})
+
+  })
+  //validar formulario
+  //primera comprobación o validación en algún campo del formulario
+  function validacion() { 
+
+    let valor = document.getElementById("inputEmail").value;
+
+   //Expresión Regular Email
+    var ExpRegEmail=/^(([^<>()[\]\.,;:\s@\"]+(\.[^<>()[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/;
+    var ExpRegLetrasEspacio="^[ a-zA-ZñÑáéíóúÁÉÍÓÚ]+$";
+    
+    //Evaluación de Cadena Valida de Email 
+    if(valor.match(ExpRegEmail)!=null) {
+      alert("Email válido");
+      //Expresion Regular Letras con Espacio
+      valor = document.getElementById("clientName").value;
+      //Evaluación de Cadena Valida de Letras con Espacio 
+      if(valor.match(ExpRegLetrasEspacio)!=null) {
+        alert("Nombre válido");
+
+        valor = document.getElementById("lastName").value;
+        if(valor.match(ExpRegLetrasEspacio)!=null) {
+          alert("Apellido Valido");
+          return true;
+
+        } else {
+          alert("Apellido invalido");
+          return false;
+        }
+
+      } else {
+        alert("Nombre inválido");
+          return false;
+      }
+
+    } else {
+      alert("Email inválido");
+          return false;
+    }
+  }
 
 //efecto imagenes acordeon
 function slideImg() {
@@ -387,10 +419,28 @@ function removeSlideCrip() {
     dropCrip[2].classList.remove("slideImg");
 }
 
+//Terminos y condiciones
+function validar(obj){
+  let button = document.getElementById("button-pay");
+	if(obj.checked==true){
+		button.classList.remove("disable");
+    button.href = "https://alpha-a19.github.io"
+	}else{
+		button.classList.toggle("disable");
+    button.removeAttribute("href");
+	}
+}
+
+var btnMenu = document.getElementById("btn-menu")
+btnMenu.addEventListener("click", () => {
+  var menu = document.getElementById("menu");
+  menu.classList.toggle("activeMenu");
+  btnMenu.classList.toggle("btn-active");
+})
+
 var cont = ["DIAGRAMAS ELECTRICOS TOYOTA Corolla 1.8L 2014", "DIAGRAMAS ELECTRICOS LAND ROVER Range Rover Sport (L320) 2.7 TdV6 (276DT) 2005 – 2009"];
 
 var extraido = cont[1].substr(-0, 20);
 var extraidoTwo = cont[1].substr(20);
 document.getElementById("DE").innerText = extraido; 
 document.getElementById("carText").innerText = extraidoTwo;
-
