@@ -711,7 +711,7 @@ body {
         height: 40%;
     }
     .card {
-        height: 800px;
+        height: 350px;
         justify-content: start;
     }
     .cardActive .content {
